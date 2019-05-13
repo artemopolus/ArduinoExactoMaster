@@ -8,7 +8,7 @@
 #define SERIAL1_BAUD  19200
 #define SERIAL1_RXPIN 16
 #define SERIAL1_TXPIN 17
-HardwareSerial Serial1(1);
+//HardwareSerial Serial1(1);
 
 char IncomingByte = 0;
 char OutputByte = 0;

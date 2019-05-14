@@ -61,7 +61,9 @@ void setup() {
     SDcheck = true;
     setupFile();
     writing = true;
+    data2log("Log establish\n");
   }
+  else data2log("SD error\n"); 
 }
 
 void loop() {
@@ -73,22 +75,8 @@ void loop() {
   }
   if(Serial.available() > 0)
   {
-    Serial.print("\"");
     OutputByte = Serial.read();
-    Serial.print(OutputByte);  
-    Serial.print("\"");
-    //Serial1.write(OutputByte);
-    char msg[] = "[0w0000]";
-    switch(OutputByte)
-    {
-      //            012345678
-      case '0':
-      for (int i = 0; i < 8; i++) Serial1.write(msg[i]);
-      break;
-      case '1':
-      msg[6] = '1';
-      for (int i = 0; i < 8; i++) Serial1.write(msg[i]);
-      break;
-    }
+    correctCommand(OutputByte);
+    send2uart();
   }
 }

@@ -69,7 +69,7 @@ void loop() {
   if(Serial1.available() > 0)
   {
     IncomingByte = Serial1.read();
-    Serial.print(IncomingByte);
+    smbl2log(IncomingByte);
   }
   if(Serial.available() > 0)
   {

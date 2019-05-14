@@ -47,6 +47,29 @@ void closeDataFile()
   /* закрываем файл записи данных */
   close2openedFile(& FileToData);
 }
+void smbl2log(const char smbl)
+{
+  if (Serial){
+    Serial.print(smbl);
+  }
+  if(writing)
+  {
+    if (logCounter == 0)
+    {
+      open2appendFile(SD, LogPath.c_str(), & File4Log);
+    }
+    appendSMBLtoFile(&File4Log,smbl);
+    if (logCounter < logMaxCounter)
+    {
+      logCounter++;
+    }
+    else
+    {
+      close2openedFile(& File4Log);
+      logCounter = 0;
+    }
+  }
+}
 void data2log(const char * message)
 {
   /* Если открыт серийник, то льем туда данные */

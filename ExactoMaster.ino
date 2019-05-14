@@ -13,7 +13,10 @@ HardwareSerial Serial1(1);
 char IncomingByte = 0;
 char OutputByte = 0;
 
+bool writing = false;
 
+volatile uint32_t logCounter = 0;
+volatile uint32_t logMaxCounter = 100;
 
 const size_t SerialPrintf (const char *szFormat, ...) {
   /*

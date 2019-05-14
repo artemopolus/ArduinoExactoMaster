@@ -15,6 +15,8 @@ char OutputByte = 0;
 
 bool writing = false;
 
+bool SDcheck = false;
+
 volatile uint32_t logCounter = 0;
 volatile uint32_t logMaxCounter = 100;
 
@@ -53,6 +55,12 @@ void setup() {
   if (Serial1)
   {
     SerialPrintf("Serial init OK\r\n");
+  }
+  if(setupSD())
+  {
+    SDcheck = true;
+    setupFile();
+    writing = true;
   }
 }
 

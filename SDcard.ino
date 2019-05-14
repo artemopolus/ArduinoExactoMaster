@@ -123,6 +123,13 @@ bool open2appendFile(fs::FS &fs, const char * path, File * file)
     else
         return true;
 }
+void appendSMBLtoFile(File * file, const char smbl)
+{
+  if(!file->print(smbl))
+  {
+    if (Serial)   Serial.println("Append failed\n");
+  }
+}
 void append2openedFile(File * file, const char * message)
 {
     if(file->print(message)){

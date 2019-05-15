@@ -68,6 +68,8 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  if(writing)
+  {
   if(Serial1.available() > 0)
   {
     IncomingByte = Serial1.read();
@@ -78,5 +80,6 @@ void loop() {
     OutputByte = Serial.read();
     correctCommand(OutputByte);
     send2uart();
+  }
   }
 }

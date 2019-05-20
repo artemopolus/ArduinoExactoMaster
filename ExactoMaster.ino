@@ -82,4 +82,5 @@ void loop() {
     send2uart();
   }
   }
+  delay(5);
 }

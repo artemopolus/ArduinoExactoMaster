@@ -27,5 +27,8 @@ void correctCommand(const char cmd)
     case '1':
       setExCmd('0','w','0','0','0','1');
       break;
+    case '2':
+      setExCmd('0','w','0','0','0','2');
+      break;
   }
 }

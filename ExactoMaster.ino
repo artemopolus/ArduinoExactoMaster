@@ -5,7 +5,7 @@
 #include <Wire.h>
 #include <SPI.h>
 #include "HardwareSerial.h"
-#define SERIAL1_BAUD  19200
+#define SERIAL1_BAUD  115200
 #define SERIAL1_RXPIN 16
 #define SERIAL1_TXPIN 17
 //HardwareSerial Serial1(1);
